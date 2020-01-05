@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::match(['get', 'post'], '/result/ajax', 'HomeController@ajax');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('/add', 'HomeController@add')->name('add');
