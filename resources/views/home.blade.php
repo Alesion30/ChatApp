@@ -18,9 +18,10 @@
     @csrf
     <div class="comment-container row justify-content-center">
         <div class="input-group comment-area">
-            <textarea class="form-control" id="comment" name="comment" placeholder="input massage"
-                aria-label="With textarea"></textarea>
-            <button type="submit" class="btn btn-outline-primary comment-btn">Submit</button>
+            <textarea class="form-control" id="comment" name="comment" placeholder="push massage (shift + Enter)"
+                aria-label="With textarea"
+                onkeydown="if(event.shiftKey&&event.keyCode==13){document.getElementById('submit').click();return false};"></textarea>
+            <button type="submit" id="submit" class="btn btn-outline-primary comment-btn">Submit</button>
         </div>
     </div>
 </form>
