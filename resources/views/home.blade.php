@@ -23,7 +23,6 @@
         </div>
     </div>
 </form>
-
 @endsection
 
 @section('js')

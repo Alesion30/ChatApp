@@ -11,9 +11,7 @@ function get_data() {
 
     $.get({
         url: "result/ajax/",
-
         method: "POST",
-
         dataType: "json"
     })
 
