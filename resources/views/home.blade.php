@@ -4,7 +4,7 @@
 <div class="chat-container row justify-content-center">
     <div class="chat-area">
         <div class="card">
-            <div class="card-header">GLEAP</div>
+            <div class="card-header">Comment</div>
             <div class="card-body chat-card">
                 <div id="comment-data"></div>
             </div>

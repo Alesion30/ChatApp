@@ -29,7 +29,7 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function ajax(Request $request)
+    public function getData(Request $request)
     {
         $comments = Comment::orderBy('created_at', 'desc')->get();
         $json = ["comments" => $comments];
