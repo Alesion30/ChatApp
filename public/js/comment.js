@@ -3,25 +3,17 @@ $(function() {
 });
 
 function get_data() {
-    $.ajaxSetup({
-        headers: {
-            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
-        }
-    });
-
-    $.get({
+    $.ajax({
         url: "result/ajax/",
-        method: "POST",
-        dataType: "json"
-    })
-
-        .done(function(data) {
+        dataType: "json",
+        success: data => {
             $("#comment-data")
                 .find(".comment-visible")
                 .remove();
 
             for (var i = 0; i < data.comments.length; i++) {
-                var html = `<div class="media comment-visible">
+                var html = `
+                            <div class="media comment-visible">
                                 <div class="media-body comment-body">
                                     <div class="row">
                                         <span class="comment-body-user" id="name">${data.comments[i].name}</span>
@@ -30,15 +22,15 @@ function get_data() {
                                     <span class="comment-body-content" id="comment">${data.comments[i].comment}</span>
                                 </div>
                             </div>
-                `;
+                        `;
 
                 $("#comment-data").append(html);
             }
-        })
-
-        .fail(function() {
+        },
+        error: () => {
             alert("ajax Error");
-        });
+        }
+    });
 
     setTimeout("get_data()", 5000);
 }
